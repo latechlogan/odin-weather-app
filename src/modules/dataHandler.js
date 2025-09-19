@@ -1,3 +1,5 @@
+import eventBus from "./eventBus";
+
 // dataHandler.js
 const dataHandler = (function () {
   let weatherData = {};
@@ -14,16 +16,23 @@ const dataHandler = (function () {
     }
   };
 
-  const setWeatherData = function (location) {
-    weatherData = {
-      dataUs: fetchData(location, "us"),
-      dataMetric: fetchData(location, "metric"),
-    };
+  const setWeatherData = function (object = "") {
+    const dataUs = fetchData(object.location, "us");
+    const dataMetric = fetchData(object.location, "metric");
+
+    Promise.all([dataUs, dataMetric]).then(([dataUs, dataMetric]) => {
+      weatherData = {
+        currentUs: dataUs.currentConditions,
+        currentMetric: dataMetric.currentConditions,
+      };
+    });
   };
 
   const getWeatherData = function () {
     return weatherData;
   };
+
+  eventBus.on("userSettingsChanged", setWeatherData);
 
   return { setWeatherData, getWeatherData };
 })();
