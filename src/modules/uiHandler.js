@@ -2,7 +2,14 @@ import eventBus from "./eventBus";
 import feather from "feather-icons";
 
 const uiHandler = (function () {
+  const locationInput = document.querySelector("#zip");
+  let locationSubmit = undefined;
   const tempOutput = document.querySelector("#temp-output");
+
+  const handleLocationInput = function () {
+    const userInput = locationInput.value;
+    eventBus.emit("inputCaptured", userInput);
+  };
 
   const displayWeather = function (weatherData) {
     tempOutput.textContent = weatherData.currentUs.temp;
