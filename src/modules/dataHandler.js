@@ -25,6 +25,7 @@ const dataHandler = (function () {
         currentUs: dataUs.currentConditions,
         currentMetric: dataMetric.currentConditions,
       };
+      eventBus.emit("weatherDataChanged", getWeatherData());
     });
   };
 
