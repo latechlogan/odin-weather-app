@@ -1,3 +1,6 @@
 import "./style.css";
+import inputHandler from "./modules/inputHandler.js";
+import dataHandler from "./modules/dataHandler.js";
 
-console.log("index.js connected.");
+window.inputHandler = inputHandler;
+window.dataHandler = dataHandler;
