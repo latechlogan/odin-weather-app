@@ -1,5 +1,6 @@
 import eventBus from "./eventBus";
 import feather from "feather-icons";
+import inputHandler from "./inputHandler";
 
 const uiHandler = (function () {
   const locationInput = document.querySelector("#zip");
@@ -12,7 +13,13 @@ const uiHandler = (function () {
   };
 
   const displayWeather = function (weatherData) {
-    tempOutput.textContent = weatherData.currentUs.temp;
+    const userSettings = inputHandler.getUserSettings();
+    console.log(userSettings, "weatherData: ", weatherData);
+    tempOutput.textContent = `${
+      userSettings.units === "us"
+        ? weatherData.currentUs.temp
+        : weatherData.currentMetric.temp
+    }${userSettings.units === "us" ? "\u00B0F" : "\u00B0C"}`;
   };
 
   const createSubmitIcon = function () {
