@@ -69,8 +69,6 @@ h6 {
 
 /* Custom CSS */
 
-@import url(../node_modules/@fontsource-variable/figtree);
-
 :root {
   font-family: "Figtree Variable", sans-serif;
 }

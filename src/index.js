@@ -1,4 +1,5 @@
 import "./style.css";
+import "@fontsource-variable/figtree";
 import inputHandler from "./modules/inputHandler.js";
 import dataHandler from "./modules/dataHandler.js";
 import uiHandler from "./modules/uiHandler.js";
