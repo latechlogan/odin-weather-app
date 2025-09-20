@@ -1,6 +1,7 @@
 import eventBus from "./eventBus";
 import feather from "feather-icons";
 import inputHandler from "./inputHandler";
+import dataHandler from "./dataHandler";
 
 const uiHandler = (function () {
   const locationInput = document.querySelector("#zip");
@@ -12,13 +13,12 @@ const uiHandler = (function () {
     eventBus.emit("locationChanged", location);
   };
 
-  const displayWeather = function (weatherData) {
+  const displayWeather = function () {
     const userSettings = inputHandler.getUserSettings();
-    console.log(userSettings, "weatherData: ", weatherData);
     tempOutput.textContent = `${
       userSettings.units === "us"
-        ? weatherData.currentUs.temp
-        : weatherData.currentMetric.temp
+        ? dataHandler.getWeatherData().currentUs.temp
+        : dataHandler.getWeatherData().currentMetric.temp
     }${userSettings.units === "us" ? "\u00B0F" : "\u00B0C"}`;
   };
 
