@@ -6,6 +6,7 @@ import eventBus from "./modules/eventBus.js";
 
 window.inputHandler = inputHandler;
 window.dataHandler = dataHandler;
+window.uiHandler = uiHandler;
 
 const initApp = (function () {
   eventBus.emit("appStart");
