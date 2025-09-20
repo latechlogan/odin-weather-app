@@ -25,6 +25,18 @@ const uiHandler = (function () {
     "clear-night": "clear-night.svg",
   };
 
+  function importAll(r) {
+    let iconSVG = {};
+    r.keys().map((item, index) => {
+      iconSVG[item.replace("./", "")] = r(item);
+    });
+    return iconSVG;
+  }
+
+  const iconSVG = importAll(
+    require.context("../assets/weather-icons/", false, /\.svg$/)
+  );
+
   const handleLocationInput = function () {
     const location = locationInput.value;
     eventBus.emit("locationCaptured", location);
@@ -37,19 +49,15 @@ const uiHandler = (function () {
         ? dataHandler.getWeatherData().currentUs.temp
         : dataHandler.getWeatherData().currentMetric.temp
     }${userSettings.units === "us" ? "\u00B0F" : "\u00B0C"}`;
+
+    displayWeatherIcon();
   };
 
   const displayWeatherIcon = function () {
     const iconValue = dataHandler.getWeatherData().currentUs.icon;
     const iconFile = iconMap[iconValue];
 
-    console.log(iconValue, iconFile);
-
-    const img = document.createElement("img");
-    img.setAttribute("src", `./src/assest/weather-icons/${iconFile}`);
-    img.setAttribute("width", "512");
-    img.setAttribute("height", "512");
-    document.querySelector("#icon-output").prepend(img);
+    document.querySelector("#icon-output").innerHTML = iconSVG[iconFile];
   };
 
   const createSubmitIcon = function () {
