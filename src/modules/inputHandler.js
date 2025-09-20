@@ -1,7 +1,10 @@
 import eventBus from "./eventBus";
 
 const inputHandler = (function () {
-  let userSettings = {};
+  let userSettings = {
+    location: undefined,
+    units: "us",
+  };
 
   const setLocation = function (consoleInput) {
     userSettings.location = consoleInput;
