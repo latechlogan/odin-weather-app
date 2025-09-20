@@ -6,8 +6,8 @@ const inputHandler = (function () {
     units: "us",
   };
 
-  const setLocation = function (consoleInput) {
-    userSettings.location = consoleInput;
+  const setLocation = function (userInput) {
+    userSettings.location = userInput;
     eventBus.emit("userSettingsChanged", getUserSettings());
   };
 
@@ -19,6 +19,8 @@ const inputHandler = (function () {
   const getUserSettings = function () {
     return userSettings;
   };
+
+  eventBus.on("locationChanged", setLocation);
 
   return { setLocation, setUnits, getUserSettings };
 })();

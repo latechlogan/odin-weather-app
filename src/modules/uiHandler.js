@@ -8,8 +8,8 @@ const uiHandler = (function () {
   const tempOutput = document.querySelector("#temp-output");
 
   const handleLocationInput = function () {
-    const userInput = locationInput.value;
-    eventBus.emit("inputCaptured", userInput);
+    const location = locationInput.value;
+    eventBus.emit("locationChanged", location);
   };
 
   const displayWeather = function (weatherData) {
