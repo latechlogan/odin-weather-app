@@ -10,7 +10,7 @@ const uiHandler = (function () {
 
   const handleLocationInput = function () {
     const location = locationInput.value;
-    eventBus.emit("locationChanged", location);
+    eventBus.emit("locationCaptured", location);
   };
 
   const displayWeather = function () {
@@ -39,6 +39,7 @@ const uiHandler = (function () {
 
   eventBus.on("appStart", createSubmitIcon);
   eventBus.on("weatherDataChanged", displayWeather);
+  eventBus.on("unitsChanged", displayWeather);
 })();
 
 export default uiHandler;

@@ -33,7 +33,7 @@ const dataHandler = (function () {
     return weatherData;
   };
 
-  eventBus.on("userSettingsChanged", setWeatherData);
+  eventBus.on("locationChanged", setWeatherData);
 
   return { setWeatherData, getWeatherData };
 })();
