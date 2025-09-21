@@ -6,15 +6,28 @@
     <title>Odin | Weather App</title>
   </head>
   <body>
-    <h1>Odin Weather App</h1>
-    <div class="input-bar">
-      <label for="zip">Location:</label>
-      <input type="tel" name="zip" id="zip" />
-      <!-- add feather icon button -->
-    </div>
-    <div class="current-conditions">
+    <header class="mw-container">
+      <h1 class="h6">Odin Weather App</h1>
+      <div class="input-bar">
+        <label for="zip" class="sr-only"
+          >Enter the ZIP code for your desired location:</label
+        >
+        <input
+          type="tel"
+          name="zip"
+          id="zip"
+          placeholder="ZIP"
+          autocomplete="off"
+        />
+      </div>
+      <label for="units-pref" class="switch">
+        <input type="checkbox" name="units-pref" id="units-pref" />
+        <span class="slider"></span>
+      </label>
+    </header>
+    <div class="current-conditions mw-container">
       <div id="icon-output"></div>
-      <p id="temp-output"></p>
+      <p id="temp-output" class="h1"></p>
     </div>
   </body>
 </html>

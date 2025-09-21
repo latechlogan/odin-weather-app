@@ -96,7 +96,7 @@ h6 {
   font-size: 2.488rem;
 }
 .h3 {
-  font-size: 2.074rem;
+  font-size: 2rem;
 }
 .h4 {
   font-size: 1.728rem;
@@ -112,4 +112,212 @@ h6 {
 }
 .small-print {
   font-size: 0.833rem;
+}
+
+/* Global Styles */
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.mw-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Section/Element Styles */
+
+body {
+  color: #fff;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 1rem;
+  background: linear-gradient(
+    180deg,
+    #111a3c 0%,
+    #1d2b64 50%,
+    rgb(250, 120, 230) 130%
+  );
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-bar {
+  position: relative;
+}
+
+.input-bar input[type="tel"] {
+  appearance: none;
+  color: #fff;
+  height: 2rem;
+  padding: 0 12px;
+  background-color: hsla(0, 0%, 100%, 0.16);
+  border: 1px solid hsla(0, 0%, 100%, 0.12);
+  border-radius: 1rem;
+}
+
+.input-bar input[type="tel"]::selection {
+  background-color: hsla(0, 0%, 100%, 0.16);
+  border: 1px solid hsla(0, 0%, 100%, 0.12);
+}
+
+.input-bar input[type="tel"]::placeholder {
+  color: hsla(0, 0%, 100%, 0.48);
+}
+
+.input-bar svg {
+  position: absolute;
+  top: 4px;
+  right: 12px;
+  width: 20px;
+}
+
+.current-conditions {
+  background-color: hsla(0, 0%, 100%, 0.08);
+  border-radius: 1rem;
+}
+
+#icon-output {
+  width: 320px;
+  height: auto;
+}
+
+/* checkbox toggle */
+
+/* container element-less visual, more size and placement */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 4rem;
+  height: 2rem;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* text left */
+.switch::before {
+  content: "\00B0 F";
+  font-size: 0.833rem;
+  font-weight: 600;
+  color: #1d2b64;
+  color: rgb(250, 120, 230);
+  text-align: center;
+  width: 50%;
+  height: 2rem;
+  padding-right: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 300ms ease;
+}
+
+/* text right */
+.switch::after {
+  content: "\00B0 C";
+  font-size: 0.833rem;
+  font-weight: 600;
+  color: hsla(0, 0%, 100%, 0.48);
+  text-align: center;
+  width: 50%;
+  height: 2rem;
+  padding-right: 2px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: all 300ms ease;
+}
+
+/* hidden input-the label controls toggle */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* visual background/container element */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsla(0, 0%, 100%, 0.16);
+  border: 1px solid hsla(0, 0%, 100%, 0.12);
+  /* mix-blend-mode: overlay; */
+  border-radius: 1rem;
+  -webkit-transition: all 0.3s cubic-bezier(1, 0, 0.31, 1.24);
+  transition: all 0.3s cubic-bezier(1, 0, 0.31, 1.24);
+}
+
+/* toggle indicator */
+.slider::before {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 1rem;
+  -webkit-transition: all 0.3s cubic-bezier(1, 0, 0.31, 1.24);
+  transition: all 0.3s cubic-bezier(1, 0, 0.31, 1.24);
+  box-shadow: rgba(60, 64, 67, 0.2) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.1) 0px 1px 3px 1px;
+}
+
+/* text left when the toggled (right) */
+.switch:has(input:checked)::before {
+  color: hsla(0, 0%, 100%, 0.48);
+  transition: all 300ms ease;
+}
+
+/* text right when the toggled (right) */
+.switch:has(input:checked)::after {
+  color: rgb(250, 120, 230);
+  transition: all 300ms ease;
+}
+
+/* visual background/container element when toggled (right) */
+/* input:checked + .slider {
+  background-color: #b4ebca;
+  border: 1px solid #3ecc79;
+} */
+
+/* visual background/container element when focused */
+/* input:focus + .slider {
+  box-shadow: 0 0 6px hsla(0, 0%, 100%, 0.8);
+} */
+
+/* toggle indicator when toggled (right) */
+/* this rule is what moves it to the right */
+input:checked + .slider:before {
+  /* box-shadow: rgba(21, 81, 46, 0.2) 0px 1px 2px 0px,
+    rgba(21, 81, 46, 0.1) 0px 1px 3px 1px; */
+  -webkit-transform: translateX(calc(calc(100%)));
+  -ms-transform: translateX(calc(calc(100%)));
+  transform: translateX(calc(calc(100%)));
+  background: hsla(0, 0%, 100%, 1);
 }
