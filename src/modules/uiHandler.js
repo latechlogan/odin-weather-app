@@ -46,8 +46,8 @@ const uiHandler = (function () {
     const userSettings = inputHandler.getUserSettings();
     tempOutput.textContent = `${
       userSettings.units === "us"
-        ? dataHandler.getWeatherData().currentUs.temp
-        : dataHandler.getWeatherData().currentMetric.temp
+        ? Math.round(dataHandler.getWeatherData().currentUs.temp)
+        : Math.round(dataHandler.getWeatherData().currentMetric.temp)
     }${userSettings.units === "us" ? "\u00B0F" : "\u00B0C"}`;
 
     displayWeatherIcon();
