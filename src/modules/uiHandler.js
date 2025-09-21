@@ -5,6 +5,7 @@ import dataHandler from "./dataHandler";
 
 const uiHandler = (function () {
   const locationInput = document.querySelector("#zip");
+  const unitsToggle = document.querySelector("#units-pref");
   const tempOutput = document.querySelector("#temp-output");
   const iconMap = {
     snow: "snow.svg",
@@ -42,6 +43,14 @@ const uiHandler = (function () {
     eventBus.emit("locationCaptured", location);
   };
 
+  const handleUnitToggle = function () {
+    if (this.checked) {
+      inputHandler.setUnits("metric");
+    } else {
+      inputHandler.setUnits("us");
+    }
+  };
+
   const displayWeather = function () {
     const userSettings = inputHandler.getUserSettings();
     tempOutput.textContent = `${
@@ -74,6 +83,8 @@ const uiHandler = (function () {
       handleLocationInput();
     }
   });
+
+  unitsToggle.addEventListener("change", handleUnitToggle);
 
   eventBus.on("appStart", createSubmitIcon);
   eventBus.on("weatherDataChanged", displayWeather);
