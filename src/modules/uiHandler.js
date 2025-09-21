@@ -6,7 +6,7 @@ import dataHandler from "./dataHandler";
 const uiHandler = (function () {
   const locationInput = document.querySelector("#zip");
   const unitsToggle = document.querySelector("#units-pref");
-  const tempOutput = document.querySelector("#temp-output");
+  const tempOutput = document.querySelector(".temp-output");
   const iconMap = {
     snow: "snow.svg",
     "snow-showers-day": "snow.svg",
@@ -63,7 +63,7 @@ const uiHandler = (function () {
   };
 
   const displayWeatherIcon = function () {
-    const iconOutput = document.querySelector("#icon-output");
+    const iconOutput = document.querySelector(".icon-output");
 
     const iconValue = dataHandler.getWeatherData().currentUs.icon;
     const iconFile = iconMap[iconValue];
