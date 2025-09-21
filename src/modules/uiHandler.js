@@ -63,10 +63,16 @@ const uiHandler = (function () {
   };
 
   const displayWeatherIcon = function () {
+    const iconOutput = document.querySelector("#icon-output");
+
     const iconValue = dataHandler.getWeatherData().currentUs.icon;
     const iconFile = iconMap[iconValue];
 
-    document.querySelector("#icon-output").innerHTML = iconSVG[iconFile];
+    if (iconOutput.innerHTML === iconSVG[iconFile]) {
+      return;
+    } else {
+      iconOutput.innerHTML = iconSVG[iconFile];
+    }
   };
 
   const createSubmitIcon = function () {
