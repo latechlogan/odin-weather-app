@@ -161,19 +161,9 @@ header.mw-container {
   max-width: 359px;
 }
 
-@media screen and (min-width: 560px) {
-  header {
-    justify-content: space-between;
-  }
-
-  /* override for .mw-container global ruleset */
-  header.mw-container {
-    max-width: 900px;
-  }
-}
-
-header > * {
-  margin: 0.5rem 0;
+header > *,
+header label.switch {
+  margin: 1rem 0 0.5rem 0;
 }
 
 .input-bar {
@@ -209,14 +199,27 @@ header > * {
 .current-conditions {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
 }
 
 .icon-output {
   width: 320px;
   height: auto;
+}
+
+.text-output {
+  text-align: center;
+}
+
+.brief-output {
+  margin: 0 0 0 0;
+}
+
+.feels-output {
+  margin: 1rem 0 0 0;
 }
 
 /* checkbox toggle */
@@ -344,4 +347,29 @@ input:checked + .slider:before {
   -ms-transform: translateX(calc(calc(100%)));
   transform: translateX(calc(calc(100%)));
   background: hsla(0, 0%, 100%, 1);
+}
+
+@media screen and (min-width: 560px) {
+  header {
+    justify-content: space-between;
+  }
+
+  /* override for .mw-container global ruleset */
+  header.mw-container {
+    max-width: 900px;
+  }
+
+  .input-bar {
+    margin-right: 1rem;
+    margin-left: auto;
+  }
+
+  .icon-output {
+    margin: 0 1rem 0 0;
+  }
+
+  .text-output {
+    text-align: left;
+    margin: 0 4rem 0 0;
+  }
 }

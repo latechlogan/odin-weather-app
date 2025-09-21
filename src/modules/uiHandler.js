@@ -6,7 +6,6 @@ import dataHandler from "./dataHandler";
 const uiHandler = (function () {
   const locationInput = document.querySelector("#zip");
   const unitsToggle = document.querySelector("#units-pref");
-  const tempOutput = document.querySelector(".temp-output");
   const iconMap = {
     snow: "snow.svg",
     "snow-showers-day": "snow.svg",
@@ -53,11 +52,30 @@ const uiHandler = (function () {
 
   const displayWeather = function () {
     const userSettings = inputHandler.getUserSettings();
+    const tempOutput = document.querySelector(".temp-output");
+    const briefOutput = document.querySelector(".brief-output");
+    const feelsOutput = document.querySelector(".feels-output");
+    // const precipOutput = document.querySelector(".precip-output");
+
     tempOutput.textContent = `${
       userSettings.units === "us"
         ? Math.round(dataHandler.getWeatherData().currentUs.temp)
         : Math.round(dataHandler.getWeatherData().currentMetric.temp)
     }${userSettings.units === "us" ? "\u00B0F" : "\u00B0C"}`;
+
+    feelsOutput.textContent = `Humidity: ${
+      userSettings.units === "us"
+        ? Math.round(dataHandler.getWeatherData().currentUs.humidity)
+        : Math.round(dataHandler.getWeatherData().currentMetric.humidity)
+    }% | Feels like: ${
+      userSettings.units === "us"
+        ? Math.round(dataHandler.getWeatherData().currentUs.feelslike)
+        : Math.round(dataHandler.getWeatherData().currentMetric.feelslike)
+    }${userSettings.units === "us" ? "\u00B0F" : "\u00B0C"}`;
+
+    briefOutput.textContent = `${
+      dataHandler.getWeatherData().currentUs.conditions
+    }`;
 
     displayWeatherIcon();
   };
