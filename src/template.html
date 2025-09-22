@@ -10,13 +10,13 @@
       <h1 class="h6">Odin Weather App</h1>
       <div class="input-bar">
         <label for="zip" class="sr-only"
-          >Enter the ZIP code for your desired location:</label
+          >Enter the Zip Code for your desired location:</label
         >
         <input
           type="tel"
           name="zip"
           id="zip"
-          placeholder="ZIP"
+          placeholder="Search Zip Code"
           autocomplete="off"
         />
       </div>
@@ -33,6 +33,9 @@
         <p class="feels-output p"></p>
       </div>
     </div>
-    <div class="forecast-output mw-container"></div>
+    <div class="forecast mw-container">
+      <h2 class="h4 forecast-heading sr-only">5-Day Forecast</h2>
+      <div class="forecast-output"></div>
+    </div>
   </body>
 </html>

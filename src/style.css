@@ -206,7 +206,7 @@ header label.switch {
 }
 
 .icon-output {
-  width: 320px;
+  width: min(53vw, 320px);
   height: auto;
 }
 
@@ -220,6 +220,28 @@ header label.switch {
 
 .feels-output {
   margin: 1rem 0 0 0;
+}
+
+.forecast {
+  margin-top: 3rem;
+}
+
+.forecast-heading {
+  text-align: center;
+}
+
+.forecast-output {
+  width: 100%;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.forecast-output > * {
+  width: calc((100% - 2rem) / 5);
+  min-height: 100px;
 }
 
 /* checkbox toggle */
@@ -371,5 +393,9 @@ input:checked + .slider:before {
   .text-output {
     text-align: left;
     margin: 0 4rem 0 0;
+  }
+
+  .forecast-heading {
+    text-align: left;
   }
 }
