@@ -103,7 +103,7 @@ const uiHandler = (function () {
   };
 
   locationInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.target.value !== "") {
       handleLocationInput();
     }
   });
