@@ -24,6 +24,8 @@ const dataHandler = (function () {
       weatherData = {
         currentUs: dataUs.currentConditions,
         currentMetric: dataMetric.currentConditions,
+        forecastUs: dataUs.days.slice(0, 5),
+        forecastMetric: dataMetric.days.slice(0, 5),
       };
       eventBus.emit("weatherDataChanged", getWeatherData());
     });
