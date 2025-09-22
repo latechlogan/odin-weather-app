@@ -198,6 +198,7 @@ header label.switch {
 
 .current-conditions {
   width: 100%;
+  margin-top: 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -223,7 +224,7 @@ header label.switch {
 }
 
 .forecast {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .forecast-heading {
@@ -240,8 +241,16 @@ header label.switch {
 }
 
 .forecast-output > * {
-  width: calc((100% - 2rem) / 5);
+  width: calc((100% - 4vw) / 5);
   min-height: 100px;
+  background: linear-gradient(
+    160deg,
+    hsla(0, 0%, 100%, 0.12),
+    hsla(0, 0%, 100%, 0) 64%
+  );
+  padding: 2% 0 2% 2%;
+  /* border: 1px solid hsla(0, 0%, 100%, 0.16); */
+  border-radius: 0.25rem;
 }
 
 /* checkbox toggle */
