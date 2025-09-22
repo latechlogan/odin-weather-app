@@ -141,9 +141,9 @@ body {
   padding: 1rem;
   background: linear-gradient(
     180deg,
-    hsl(215, 40%, 15%) 5%,
-    hsl(250, 40%, 35%) 60%,
-    hsl(300, 88%, 73%) 180%
+    hsl(215, 40%, 15%) 0%,
+    hsl(250, 40%, 40%) 60%,
+    hsl(300, 88%, 73%) 160%
   );
 }
 
